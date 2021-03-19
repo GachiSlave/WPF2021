@@ -10,7 +10,7 @@ namespace ConsoleApp1
         {
             public struct x_y
             {
-                public double x, y;
+                public double x, y; // можно использовать класс Point
             }
 
             public double degrees, speed, angle;
@@ -33,13 +33,13 @@ namespace ConsoleApp1
 
             public void find_dot(double time)
             {
-                x_y coor;
+                x_y coor; 
                 coor.x = speed * time * Math.Cos(angle); ;
                 coor.y = speed * time * Math.Sin(angle) - 4.9 * time * time;
                 if (coor.y <= 0)
                     coor.y = 0;
 
-                Console.WriteLine(coor.x + " " + coor.y);
+                Console.WriteLine(coor.x + " " + coor.y); // Предусмотреть запись в файл
                 
                
                 return;
@@ -65,6 +65,7 @@ namespace ConsoleApp1
 
         public static void Main(string[] args)
         {
+            // Хорошо бы было еще предусмотреть чтение из файла начальных данных
             Tr Gr = new Tr(60, 20);
             Gr.Tr_paint(10, 0.5);
         }

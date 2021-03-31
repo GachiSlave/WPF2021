@@ -44,7 +44,7 @@ namespace ConsoleApp1
                
                 return;
             }
-
+            
             public void Tr_paint(double time, double steps)
             {
                 string writePath = @"../../../Txt.txt";

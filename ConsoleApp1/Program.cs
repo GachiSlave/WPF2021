@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.IO;
 namespace ConsoleApp1
 {
     //
@@ -47,9 +47,22 @@ namespace ConsoleApp1
 
             public void Tr_paint(double time, double steps)
             {
-                for (double i = 0; i < time; i+=steps)
+                string writePath = @"../../../Txt.txt";
+                for (double i = 0; i < time; i += steps)
                 {
-                    find_dot(i);
+                    x_y point = get_Tr(i);
+                    try
+                    {
+                        using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
+                        {
+                            sw.WriteLine(point.x);
+                            sw.WriteLine(point.y);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
                 }
                 find_dot(time);
             }
